@@ -23,15 +23,6 @@ jobs:
           cache: 'npm'
       - name: Install npm
         run: npm install
-      - name: Run tests
+      - name: Run test
         run: npm test    
-
-  deploy:
-    if: github.event_name  == 'workflow_dispatch' 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
-        with:
-          service-id: ${{ secrets.LibraryServiceID }}
-          api-key: ${{ secrets.LibraryAppKey }}
+        
